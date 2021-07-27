@@ -1,0 +1,43 @@
+﻿@page
+@model RealKruGameWebsite.Pages.Works.WorkModel
+@{
+    ViewData["Title"] = "Work page";
+}
+
+<style>
+    .btn {
+        width: 75px;
+    }
+</style>
+
+<h1>Works</h1>
+
+<div class="text-center">
+    <a asp-page="/Works/WorkEdit"
+       class="btn btn-primary m-1">Add Work</a>
+    </div>
+
+    <div class="card-deck">
+        @foreach (var work in Model.Works)
+        {
+            var photoPath = "~/workimages/" + (work.PhotoPath ?? "noimage.png");
+            <div class="card m-3" style="min-width: 18rem; max-width:30.5%;">
+                <div class="card-header">
+                    <h3>@work.Title</h3>
+                </div>
+
+                <img class="card-img-top imageThumbnail" src="@photoPath"
+                     asp-append-version="true" />
+
+                <div class="card-footer text-center">
+                    <a asp-page="/Works/WorkDetails" asp-route-ID="@work.Id"
+                       class="btn btn-primary m-1">View</a>
+                    <a asp-page="/Works/WorkEdit" asp-route-ID="@work.Id"
+                       class="btn btn-primary m-1">Edit</a>
+                    <a href="#" class="btn btn-danger m-1">Delete</a>
+                </div>
+            </div>
+        }
+    </div>
+
+
