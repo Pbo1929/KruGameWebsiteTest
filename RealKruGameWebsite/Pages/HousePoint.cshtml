@@ -1,0 +1,54 @@
+﻿@page
+@model RealKruGameWebsite.Pages.HousePointModel
+@{
+}
+<h1>House Point Page</h1>
+<p>A page where Kru Game adds or removes house points for students.</p>
+
+<h4>Add House Point</h4>
+<div class="text-center">
+    <form method="post">
+        <table>
+            <tr>
+                <td>To</td>
+                <td><input type="text" asp-for="sendmail.To" placeholder="Enter Email" size="50" /></td>
+            </tr>
+            <tr>
+                <td>Subject</td>
+                <td><input type="text" asp-for="sendmail.Subject" placeholder="Enter Title" size="50" /></td>
+            </tr>
+            <tr>
+                <td>Body</td>
+                <td><textarea type="text" asp-for="sendmail.Body" placeholder="Enter Description" rows="10" cols="60"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="submit" class="btn-success" value="COMPLETE" /></td>
+                <td>@ViewData["Message"]</td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<h4>Remove House Point</h4>
+<div class="text-center">
+    <form method="post">
+        <table>
+            <tr>
+                <td>To</td>
+                <td><input type="text" asp-for="sendmail2.To2" placeholder="Enter Email" size="50" /></td>
+            </tr>
+            <tr>
+                <td>Subject</td>
+                <td><input type="text" asp-for="sendmail2.Subject2" placeholder="Enter Title" size="50" /></td>
+            </tr>
+            <tr>
+                <td>Body</td>
+                <td><textarea type="text" asp-for="sendmail2.Body2" placeholder="Enter Description" rows="10" cols="60"></textarea></td>
+            </tr>
+            <tr>
+                <td><input type="submit" class="btn-success" value="COMPLETE" /></td>
+                <td>@ViewData["Message"]</td>
+            </tr>
+        </table>
+    </form>
+</div>

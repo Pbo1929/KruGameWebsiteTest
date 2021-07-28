@@ -26,6 +26,17 @@ namespace WorkServices.Services
             return newWork;
         }
 
+        public Work Delete(int id)
+        {
+            Work workToDelete = _workList.FirstOrDefault(e => e.Id == id);
+
+            if(workToDelete != null)
+            {
+                _workList.Remove(workToDelete);
+            }
+            return workToDelete;
+        }
+
         public IEnumerable<Work> GetAllWorks()
         {
             return _workList;

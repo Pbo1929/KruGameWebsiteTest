@@ -10,5 +10,6 @@ namespace WorkServices.Services
         Work GetWork(int id);
         Work Update(Work updatedWork);
         Work Add(Work newWork);
+        Work Delete(int id);
     }
 }
