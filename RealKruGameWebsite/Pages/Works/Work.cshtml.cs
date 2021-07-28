@@ -13,6 +13,8 @@ namespace RealKruGameWebsite.Pages.Works
     {
         private readonly IWorkRepository workRepository;
         public IEnumerable<Work> Works { get; set; }
+        [BindProperty(SupportsGet =true)]
+        public string SearchTerm { get; set; }
 
         public WorkModel(IWorkRepository workRepository)
         {
@@ -21,7 +23,7 @@ namespace RealKruGameWebsite.Pages.Works
         
         public void OnGet()
         {
-            Works = workRepository.GetAllWorks();
+            Works = workRepository.Search(SearchTerm);
         }
     }
 }

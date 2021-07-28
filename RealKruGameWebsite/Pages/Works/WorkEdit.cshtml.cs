@@ -29,7 +29,7 @@ namespace RealKruGameWebsite.Pages.Works
         // display existing Work data
 
         [BindProperty]
-        public Work Work { get; private set; }
+        public Work Work { get; set; }
 
         // We use this property to store and process
         // the newly uploaded photo

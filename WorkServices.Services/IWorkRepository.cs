@@ -6,6 +6,7 @@ namespace WorkServices.Services
 {
     public interface IWorkRepository
     {
+        IEnumerable<Work> Search(string searchTerm);
         IEnumerable<Work> GetAllWorks();
         Work GetWork(int id);
         Work Update(Work updatedWork);

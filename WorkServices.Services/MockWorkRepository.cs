@@ -47,6 +47,16 @@ namespace WorkServices.Services
             return _workList.FirstOrDefault(e => e.Id == id);
         }
 
+        public IEnumerable<Work> Search(string searchTerm)
+        {
+            if (string.IsNullOrEmpty(searchTerm))
+            {
+                return _workList;
+            }
+
+            return _workList.Where(e => e.Title.Contains(searchTerm));
+        }
+
         public Work Update(Work updatedWork)
         {
             Work work = _workList
