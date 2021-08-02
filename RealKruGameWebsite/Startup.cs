@@ -15,7 +15,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WorkServices.Services;
+using UserModel.Services;
+using UserServices.Services;
 
 namespace RealKruGameWebsite
 {
@@ -36,10 +37,10 @@ namespace RealKruGameWebsite
             services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.BottomRight; });
             services.AddDbContextPool<AppDbContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("WorkDBConnection"));
+                options.UseSqlServer(Configuration.GetConnectionString("UserDBConnection"));
             });
             services.AddRazorPages();
-            services.AddSingleton<IWorkRepository, MockWorkRepository>();
+            services.AddScoped<IUserRepository, SQLUserRepository>();
             services.Configure<RouteOptions>(options =>
             {
                 options.LowercaseUrls = true;

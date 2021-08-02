@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using WorkModels.Models;
+using UserModels.Models;
 
-namespace WorkServices.Services
+namespace UserServices.Services
 {
     public class AppDbContext : DbContext
     {
@@ -14,6 +14,6 @@ namespace WorkServices.Services
 
         }
 
-        public DbSet<Work> Works { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
