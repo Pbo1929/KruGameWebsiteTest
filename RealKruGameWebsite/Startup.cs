@@ -15,8 +15,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UserModel.Services;
 using UserServices.Services;
+using WorkServices.Services;
 
 namespace RealKruGameWebsite
 {
@@ -41,6 +41,7 @@ namespace RealKruGameWebsite
             });
             services.AddRazorPages();
             services.AddScoped<IUserRepository, SQLUserRepository>();
+            services.AddSingleton<IWorkRepository, MockWorkRepository>();
             services.Configure<RouteOptions>(options =>
             {
                 options.LowercaseUrls = true;

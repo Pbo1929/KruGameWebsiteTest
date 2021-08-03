@@ -25,6 +25,8 @@
   <ItemGroup>
     <ProjectReference Include="..\UserModel.Services\UserServices.Services.csproj" />
     <ProjectReference Include="..\UserModels.Models\UserModels.Models.csproj" />
+    <ProjectReference Include="..\WorkModels.Models\WorkModels.Models.csproj" />
+    <ProjectReference Include="..\WorkServices.Services\WorkServices.Services.csproj" />
   </ItemGroup>
 
 </Project>
