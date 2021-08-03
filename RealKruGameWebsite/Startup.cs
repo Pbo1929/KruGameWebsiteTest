@@ -40,7 +40,7 @@ namespace RealKruGameWebsite
                 options.UseSqlServer(Configuration.GetConnectionString("UserDBConnection"));
             });
             services.AddRazorPages();
-            services.AddScoped<IUserRepository, SQLUserRepository>();
+            services.AddSingleton<IUserRepository, MockUserRepository>();
             services.AddSingleton<IWorkRepository, MockWorkRepository>();
             services.Configure<RouteOptions>(options =>
             {

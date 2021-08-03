@@ -14,6 +14,7 @@ namespace UserServices.Services
         {
             _userList = new List<User>()
             {
+                new User() {Id = 1, Username = "Prem", Email = "prem.s@ascot.ac.th", HousePoint = 1, Warning = 0, PhotoPath = "noimage.png" }
             };
         }
 
@@ -63,7 +64,8 @@ namespace UserServices.Services
             {
                 user.Username = updatedUser.Username;
                 user.Email = updatedUser.Email;
-                user.Password = updatedUser.Password;
+                user.HousePoint = updatedUser.HousePoint;
+                user.Warning = updatedUser.Warning;
                 user.PhotoPath = updatedUser.PhotoPath;
             }
             return user;

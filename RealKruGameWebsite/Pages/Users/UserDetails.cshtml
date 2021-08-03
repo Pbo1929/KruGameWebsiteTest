@@ -1,0 +1,29 @@
+﻿@page
+@model RealKruGameWebsite.Pages.Users.UserDetailsModel
+@{
+    ViewData["Title"] = "Details";
+    var photoPath = "~/workimages/" + (Model.User.PhotoPath ?? "noimage.png");
+}
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@Model.User.Username</h1>
+            </div>
+
+            <div class="card-body text-center">
+                <img class="card-img-top" src="@photoPath" asp-append-version="true" />
+                <h4>Email: @Model.User.Email</h4>
+                <h4>House Point: @Model.User.HousePoint</h4>
+                <h4>Warning : @Model.User.Warning</h4>
+            </div>
+
+
+            <div class="card-footer text-center">
+                <a asp-page="/Users/userProfile"
+                   class="btn btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+</div>

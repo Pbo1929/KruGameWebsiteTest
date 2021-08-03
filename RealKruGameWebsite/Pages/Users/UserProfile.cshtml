@@ -1,0 +1,51 @@
+﻿@page
+@model RealGameWebsiteTest.Pages.Users.UserProfileModel
+@{
+}
+
+<style>
+    .btn {
+        width: 75px;
+    }
+</style>
+
+<h1>Users</h1>
+
+<form method="get">
+    <div class="input-group">
+        <input class="form-control" asp-for="SearchTerm" />
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+</form>
+
+<div class="text-center">
+    <a asp-page="/Users/UserEdit"
+       class="btn btn-primary m-1">Add User</a>
+</div>
+
+<div class="card-deck">
+    @foreach (var user in Model.Users)
+    {
+        var photoPath = "~/workimages/" + (user.PhotoPath ?? "noimage.png");
+        <div class="card m-3" style="min-width: 18rem; max-width:30.5%;">
+            <div class="card-header">
+                <h3>@user.Username</h3>
+            </div>
+
+            <img class="card-img-top imageThumbnail" src="@photoPath"
+                 asp-append-version="true" />
+
+            <div class="card-footer text-center">
+                <a asp-page="/Users/UserDetails" asp-route-ID="@user.Id"
+                   class="btn btn-primary m-1">View</a>
+                <a asp-page="/Users/UserEdit" asp-route-ID="@user.Id"
+                   class="btn btn-primary m-1">Edit</a>
+                <a asp-page="/Users/UserDelete" asp-route-ID="@user.Id"
+                   class="btn btn-danger m-1">Delete</a>
+            </div>
+        </div>
+
+    }
+</div>

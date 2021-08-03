@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkModels.Models", "WorkMo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkServices.Services", "WorkServices.Services\WorkServices.Services.csproj", "{FC8AB284-D0C8-4C3B-B6DF-B2F76CC50F0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserModels.Models", "UserModels.Models\UserModels.Models.csproj", "{0DE7D2B3-EA8D-4F96-8AE3-5CF63FA4A303}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserModels.Models", "UserModels.Models\UserModels.Models.csproj", "{0DE7D2B3-EA8D-4F96-8AE3-5CF63FA4A303}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserServices.Services", "UserModel.Services\UserServices.Services.csproj", "{B324AED0-B273-44B2-AB6B-724DA9D146D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserServices.Services", "UserModel.Services\UserServices.Services.csproj", "{B324AED0-B273-44B2-AB6B-724DA9D146D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
