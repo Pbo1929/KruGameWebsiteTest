@@ -1,10 +1,10 @@
-using RealGameWebsiteTest.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
+using RealGameWebsiteTest.Models;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
@@ -46,5 +46,11 @@ namespace RealGameWebsiteTest.Pages
             Message = "Invalid attempt";
             return Page();
         }
+    }
+
+    public class SiteUser
+    {
+        public string UserName { get; set; }
+        public string Password { get; set; }
     }
 }
