@@ -38,6 +38,7 @@ namespace RealKruGameWebsite
             Global.ConnectionString = Configuration.GetConnectionString("NotificationDB");
             services.AddScoped<INotiService, NotiService>();
             services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.BottomRight; });
+            
             services.AddDbContextPool<AppDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("UserDBConnection"));
