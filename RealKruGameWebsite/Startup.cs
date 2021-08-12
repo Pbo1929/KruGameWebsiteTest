@@ -30,7 +30,7 @@ namespace RealKruGameWebsite
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        public IConfiguration Configuration;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -38,11 +38,11 @@ namespace RealKruGameWebsite
             Global.ConnectionString = Configuration.GetConnectionString("NotificationDB");
             services.AddScoped<INotiService, NotiService>();
             services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.BottomRight; });
-            
+
+            string connectionString = Configuration.GetConnectionString("UserDBConnection");
             services.AddDbContextPool<AppDbContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("UserDBConnection"));
-            });
+            options.UseSqlServer(connectionString));
+
             services.AddRazorPages();
             services.AddSingleton<IUserRepository, MockUserRepository>();
             services.AddSingleton<IWorkRepository, MockWorkRepository>();
