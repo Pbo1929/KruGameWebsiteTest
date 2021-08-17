@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
+using NToastNotify;
 using RealGameWebsiteTest.Models;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -15,6 +16,7 @@ namespace RealGameWebsiteTest.Pages
     public class IndexModel : PageModel
     {
         private readonly IConfiguration configuration;
+
         public IndexModel(IConfiguration configuration)
         {
             this.configuration = configuration;

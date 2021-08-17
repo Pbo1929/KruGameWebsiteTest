@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
@@ -20,14 +21,12 @@ namespace RealKruGameWebsite.Pages
         [BindProperty]
         public Email sendmail { get; set; }
 
-        [BindProperty]
-        public Email sendmail2 { get; set; }
-
         public async Task OnPost()
         {
             string To = sendmail.To;
             string Subject = sendmail.Subject;
             string Body = sendmail.Body;
+
             MailMessage mm = new MailMessage();
             mm.To.Add(To);
             mm.Subject = Subject;

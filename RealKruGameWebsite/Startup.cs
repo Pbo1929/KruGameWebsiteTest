@@ -35,6 +35,13 @@ namespace RealKruGameWebsite
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews().AddNToastNotifyNoty(new NToastNotify.NotyOptions()
+            {
+                ProgressBar = true,
+                Timeout = 5000,
+                Theme = "mint"
+            });
+            
             Global.ConnectionString = Configuration.GetConnectionString("NotificationDB");
             services.AddScoped<INotiService, NotiService>();
             services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.BottomRight; });
@@ -82,6 +89,8 @@ namespace RealKruGameWebsite
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseNToastNotify();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
