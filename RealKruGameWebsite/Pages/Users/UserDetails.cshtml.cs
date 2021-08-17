@@ -6,8 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using UserModels.Models;
 using UserServices.Services;
-using WorkModels.Models;
-using WorkServices.Services;
 
 namespace RealKruGameWebsite.Pages.Users
 {

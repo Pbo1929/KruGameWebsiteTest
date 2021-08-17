@@ -12,8 +12,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RealGameWebsiteTest.Common;
-using RealGameWebsiteTest.IService;
-using RealGameWebsiteTest.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,16 +33,14 @@ namespace RealKruGameWebsite
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //How the notification looks when it is displayed. Also sets the time until it disappears.
             services.AddControllersWithViews().AddNToastNotifyNoty(new NToastNotify.NotyOptions()
             {
                 ProgressBar = true,
                 Timeout = 5000,
                 Theme = "mint"
             });
-            
-            Global.ConnectionString = Configuration.GetConnectionString("NotificationDB");
-            services.AddScoped<INotiService, NotiService>();
-            services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.BottomRight; });
+           
 
             string connectionString = Configuration.GetConnectionString("UserDBConnection");
             services.AddDbContextPool<AppDbContext>(options =>
@@ -75,7 +71,7 @@ namespace RealKruGameWebsite
             }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // This method gets called by the runtime. Used to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 

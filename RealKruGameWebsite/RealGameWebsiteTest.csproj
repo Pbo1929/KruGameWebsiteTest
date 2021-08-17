@@ -29,4 +29,8 @@
     <ProjectReference Include="..\WorkServices.Services\WorkServices.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Service\" />
+  </ItemGroup>
+
 </Project>

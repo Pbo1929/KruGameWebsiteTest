@@ -43,7 +43,7 @@ namespace RealKruGameWebsite.Pages.Users
         [TempData]
         public string Message { get; set; }
 
-        // Populate Employee property
+        // Populate User property
         public IActionResult OnGet(int? id)
         {
             if (id.HasValue)

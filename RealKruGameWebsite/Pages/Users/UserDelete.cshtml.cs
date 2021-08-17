@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using UserModels.Models;
 using UserServices.Services;
 
-namespace RealGameWebsiteTest.Pages
+namespace RealKruGameWebsite.Pages.Users
 {
     public class UserDeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace RealGameWebsiteTest.Pages
 
         [BindProperty]
         public new User User { get; set; }
-
+        //Gets user ID. If it gets nothing, redirect to not found page.
         public IActionResult OnGet(int id)
         {
             User = userRepository.GetUser(id);
@@ -31,7 +31,7 @@ namespace RealGameWebsiteTest.Pages
             }
             return Page();
         }
-
+        //Deletes user ID. If it gets nothing, redirect to not found page.
         public IActionResult OnPost()
         {
             User DeletedWork = userRepository.Delete(User.Id);
@@ -40,7 +40,7 @@ namespace RealGameWebsiteTest.Pages
             {
                 return RedirectToPage("/NotFound");
             }
-            return RedirectToPage("Work");
+            return RedirectToPage("/users/userprofile");
         }
     }
 }

@@ -62,7 +62,6 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
 
-    @await Component.InvokeAsync("Notyf")
     @await Component.InvokeAsync("NToastNotify")
     @await RenderSectionAsync("Scripts", required: false)
 

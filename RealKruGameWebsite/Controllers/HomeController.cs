@@ -18,7 +18,8 @@ namespace RealGameWebsiteTest.Controllers
         _logger = logger;
         this.toastNotification = toastNotification;
         }
-
+        
+        //When Index page is rendered, display text message "Notification Successful."
         public IActionResult IndexModel()
         {
             toastNotification.AddSuccessToastMessage("Notification Successful.");

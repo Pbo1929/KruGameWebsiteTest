@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace RealKruGameWebsite.Models
 {
+    //Structure for email sender
     public class Email
     {
         public string To { get; set; }
