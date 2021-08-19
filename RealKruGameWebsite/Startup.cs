@@ -33,7 +33,13 @@ namespace RealKruGameWebsite
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication().AddCookie("MyCookieAuth", options =>
+            {
+                options.Cookie.Name = "MyCookieAuth";
+            });
+
             //How the notification looks when it is displayed. Also sets the time until it disappears.
+
             services.AddControllersWithViews().AddNToastNotifyNoty(new NToastNotify.NotyOptions()
             {
                 ProgressBar = true,
@@ -62,9 +68,6 @@ namespace RealKruGameWebsite
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(cookieOptions => {
-                cookieOptions.LoginPath = "/";
-            });
 
             services.AddMvc().AddRazorPagesOptions(options => {
                 options.Conventions.AuthorizeFolder("/admin");
@@ -86,7 +89,7 @@ namespace RealKruGameWebsite
                 app.UseHsts();
             }
 
-            app.UseNToastNotify();
+           app.UseNToastNotify();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

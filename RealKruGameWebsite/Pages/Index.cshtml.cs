@@ -20,38 +20,5 @@ namespace RealGameWebsiteTest.Pages
         {
             this.configuration = configuration;
         }
-
-        [BindProperty]
-        public string UserName { get; set; }
-        [BindProperty, DataType(DataType.Password)]
-        public string Password { get; set; }
-        public string Message { get; set; }
-        public async Task<IActionResult> OnPost()
-        {
-            var user = configuration.GetSection("SiteUser").Get<SiteUser>();
-
-            if (UserName == user.UserName)
-            {
-                var passwordHasher = new PasswordHasher<string>();
-                if (passwordHasher.VerifyHashedPassword(null, user.Password, Password) == PasswordVerificationResult.Success)
-                {
-                    var claims = new List<Claim>
-                    {
-                        new Claim(ClaimTypes.Name, UserName)
-                    };
-                    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
-                    return RedirectToPage("/admin/index");
-                }
-            }
-            Message = "Invalid attempt";
-            return Page();
-        }
-    }
-
-    public class SiteUser
-    {
-        public string UserName { get; set; }
-        public string Password { get; set; }
     }
 }

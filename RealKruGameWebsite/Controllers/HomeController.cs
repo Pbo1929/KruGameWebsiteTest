@@ -14,7 +14,7 @@ namespace RealGameWebsiteTest.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IToastNotification toastNotification;
         public HomeController(ILogger<HomeController>logger, IToastNotification toastNotification)
-        {
+       {
         _logger = logger;
         this.toastNotification = toastNotification;
         }
