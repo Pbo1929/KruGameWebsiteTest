@@ -34,7 +34,7 @@ namespace RealGameWebsiteTest.Pages.Account
         {
             if (ModelState.IsValid) return Page();
             //Verify the credential
-            if (credential.UserName == "admin" && credential.Password == "password")
+            if (credential.UserName == "admin" && credential.Password == "123")
             {
                 //security context
                 var claims = new List<Claim> { 
