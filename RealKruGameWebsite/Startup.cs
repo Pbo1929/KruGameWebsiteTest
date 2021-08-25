@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RealGameWebsiteTest.BackgroundTasks;
 using RealGameWebsiteTest.Common;
 using System;
 using System.Collections.Generic;
@@ -59,6 +60,9 @@ namespace RealKruGameWebsite
             string connectionString = Configuration.GetConnectionString("UserDBConnection");
             services.AddDbContextPool<AppDbContext>(options =>
             options.UseSqlServer(connectionString));
+
+            services.AddHostedService<QueueService>();
+            services.AddSingleton<IBackgroundQueue, BackgroundQueue>();
 
             services.AddRazorPages();
             services.AddSingleton<IUserRepository, MockUserRepository>();
