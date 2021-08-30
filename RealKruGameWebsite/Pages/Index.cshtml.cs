@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace RealGameWebsiteTest.Pages
 {
-    [Authorize(Policy = "MustBelongToKruGame")]
+    //[Authorize(Policy = "MustBelongToKruGame")]
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
