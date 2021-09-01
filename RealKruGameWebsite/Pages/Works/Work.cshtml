@@ -24,7 +24,7 @@
 <div class="text-center">
     <a asp-page="/Works/WorkEdit"
        class="btn btn-primary m-1">Add Work</a>
-    </div>
+</div>
 
 <div class="card-deck">
     @foreach (var work in Model.Works)
@@ -49,6 +49,33 @@
         </div>
 
     }
+</div>
+
+<div>
+    <h4>Single File Upload</h4>
+    <form asp-controller="Home" asp-action="SingleFile" enctype="multipart/form-data" method="post">
+        <input type="file" name="file" />
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<div>
+    <h4>Multiple File Uploads</h4>
+    <form asp-controller="Home" asp-action="MultipleFiles"
+          enctype="multipart/form-data" method="post">
+        <input type="file" multiple name="files" />
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<div>
+    <h4>File in Model Upload</h4>
+    <form asp-controller="Home" asp-action="FileInModel"
+          enctype="multipart/form-data" method="post">
+        <input type="text" multiple name="someForm.Name" />
+        <input type="file" multiple name="someForm.File" />
+        <button type="submit">Submit</button>
+    </form>
 </div>
 
 
