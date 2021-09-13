@@ -39,7 +39,7 @@ namespace RealGameWebsiteTest.Pages.Account
                 //security context
                 var claims = new List<Claim> { 
                 new Claim(ClaimTypes.Name, "admin"),
-                new Claim(ClaimTypes.Email, "admin@gmail.com"),
+                new Claim(ClaimTypes.Email, "lulztit1929@gmail.com"),
                 new Claim("KruGame", "Admin")
                 };
                 var identity = new ClaimsIdentity(claims, "MyCookieAuth");
